@@ -65,13 +65,13 @@ const ToDo = () => {
       .catch(console.error);
   };
 
-  const _deleteTodoItem = (id) => {
-    fetch(todoAPI+id, {
-      method: 'delete',
-      mode: 'cors',
-    })
-    .then(res => res.text())
-  }
+  // const _deleteTodoItem = (id) => {
+  //   fetch(todoAPI+id, {
+  //     method: 'delete',
+  //     mode: 'cors',
+  //   })
+  //   .then(res => res.text())
+  // }
 
   useEffect(_getTodoItems, []);
 
