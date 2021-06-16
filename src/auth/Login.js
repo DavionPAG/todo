@@ -6,7 +6,7 @@ import {LoginContext} from './context.js';
 
 //bug fixes
 
-function Login() {
+function Login(props) {
 
   const [user, setUser] = useState({});
   const userContext = useContext(LoginContext);
@@ -25,6 +25,7 @@ function Login() {
     <If condition={userContext.loggedIn}>
       <Then>
         <button onClick={userContext.logout}>Log Out</button>
+        {props.children}
       </Then>
       <Else>
         <form onSubmit={handleSubmit}>

@@ -11,20 +11,21 @@ function TodoForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     e.target.reset();
     props.handleSubmit(item);
-    setItem({ item });
+    setItem({})
   };
 
   return (
     <>
-      <h3>Add Item</h3>
-      <form onSubmit={handleSubmit}>
+      <h3>Add</h3>
+      <form className='todo'onSubmit={handleSubmit}>
         <label>
-          <span>To Do Item</span>
+          <span>Thing To Do</span>
           <input
             name="text"
-            placeholder="Add To Do List Item"
+            placeholder="Add A Thing"
             onChange={handleInputChange}
           />
         </label>
@@ -33,10 +34,12 @@ function TodoForm(props) {
           <input defaultValue="1" type="range" min="1" max="5" name="difficulty" onChange={handleInputChange} />
         </label>
         <label>
-          <span>Assigned To</span>
-          <input type="text" name="assignee" placeholder="Assigned To" onChange={handleInputChange} />
+          <span>Assign To</span>
+          <input type="text" name="assignee" placeholder="Name" onChange={handleInputChange} />
         </label>
-        <Button>Add Item</Button>
+        <Button>
+          <button>Add Thing</button>
+        </Button>
       </form>
     </>
   );

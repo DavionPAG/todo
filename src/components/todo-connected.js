@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
 import Login from '../auth/Login.js'
+// import { If, Then, Else } from 'react-if'
 
 import './todo.scss';
 import Home from './Home.js'
@@ -11,7 +12,7 @@ import { Container } from 'react-bootstrap';
 const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
 
 
-const ToDo = () => {
+const ToDo = (props) => {
 
   const [list, setList] = useState([]);
 
@@ -66,6 +67,8 @@ const ToDo = () => {
       .catch(console.error);
   };
 
+  
+
   // const _deleteTodoItem = (id) => {
   //   fetch(todoAPI+id, {
   //     method: 'delete',
@@ -80,34 +83,31 @@ const ToDo = () => {
     <>
       <nav className='bg-primary' >
         <Home />
-        <span id='login'>
-          <Login />
-        </span>
       </nav>
-      <Container>
-        <header >
+      <Login>
+        <Container>
+          <header >
+            <div id='todo-header-div'>
+              <h2 id='todo-header'>
+                Things to do({list.filter(item => !item.complete).length})
+              </h2>
+            </div>
+          </header>
+          <section className="todo">
 
+            <div id='todo-form'>
+              <TodoForm handleSubmit={_addItem} />
+            </div>
 
-          <div id='todo-header-div'>
-            <h2 id='todo-header'>
-              Things to do({list.filter(item => !item.complete).length})
-            </h2>
-          </div>
-        </header>
-        <section className="todo">
-
-          <div id='todo-form'>
-            <TodoForm handleSubmit={_addItem} />
-          </div>
-
-          <div>
-            <TodoList
-              list={list}
-              handleComplete={_toggleComplete}
-            />
-          </div>
-        </section>
-      </Container>
+            <div>
+              <TodoList
+                list={list}
+                handleComplete={_toggleComplete}
+              />
+            </div>
+          </section>
+        </Container>
+      </Login>
     </>
   );
 };

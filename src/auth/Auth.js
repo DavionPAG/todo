@@ -1,21 +1,21 @@
-import React, {useContext} from 'react';
-import {LoginContext} from './context.js';
-import {When} from 'react-if';
+// import React, {useContext} from 'react';
+// import {LoginContext} from './context.js';
+// import {When} from 'react-if';
 
-function Auth(props) {
+// function Auth(props) {
 
-  const userContext = useContext(LoginContext)
+//   const userContext = useContext(LoginContext)
 
-  const canDoThing = props.capability ? userContext.can(props.capability) : true ;
+//   const canDoThing = props.capability ? userContext.can(props.capability) : true ;
 
-  const okToRender = userContext.loggedIn && canDoThing;
+//   const okToRender = userContext.loggedIn && canDoThing;
 
-  return (
-    <When condition={okToRender}>
-      {props.children}
-    </When>
-  )
+//   return (
+//     <When condition={okToRender}>
+//       {props.children}
+//     </When>
+//   )
 
-}
+// }
 
-export default Auth;
+// export default Auth;
