@@ -1,13 +1,14 @@
 import React from 'react';
 
-// import ToDo from './components/todo.js';
-import TodoAPI from './components/todo-connected.js'
+import TodoAPI from './components/todo-connected.js';
+import LoginContext from './auth/context.js';
 
 export default function App() {
-    return (
-      <>
-        {/* <ToDo /> */}
+  return (
+    <>
+      <LoginContext>
         <TodoAPI />
-      </>
-    );
+      </LoginContext>
+    </>
+  );
 }

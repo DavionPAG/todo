@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+import Login from '../auth/Login.js'
 
 import './todo.scss';
-import Home from './Nav.js'
+import Home from './Home.js'
 import { Container } from 'react-bootstrap';
 
 
@@ -79,6 +80,9 @@ const ToDo = () => {
     <>
       <nav className='bg-primary' >
         <Home />
+        <span id='login'>
+          <Login />
+        </span>
       </nav>
       <Container>
         <header >
