@@ -4,6 +4,8 @@ import {If, Then, Else} from 'react-if';
 
 import {LoginContext} from './context.js';
 
+//bug fixes
+
 function Login() {
 
   const [user, setUser] = useState({});
